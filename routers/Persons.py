@@ -1,7 +1,5 @@
 from flask import Blueprint, request, jsonify
-import requests
 from models.person import CVPerson
-from mongoengine.errors import ValidationError
 from models.person import CVPerson, ExperienciaLaboral, Education, Curso,Preguntas
 from datetime import datetime
 
@@ -54,7 +52,7 @@ HEADERS = {
 
 
     
-# Ruta para obtener todos los CV
+
 @cv.route('/cv', methods=['GET'])
 def get_all_cv():
     cv_people = CVPerson.objects().to_json()
