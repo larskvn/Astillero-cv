@@ -39,7 +39,11 @@ Astillero CV es una aplicación web desarrollada siguiendo el patrón de diseño
 
 ## Uso
 
-Una vez que la aplicación esté en funcionamiento, puedes acceder a ella desde tu navegador web visitando la URL `http://localhost:5000`.
+<div style="background-color: #f9f9f9; padding: 10px; border-radius: 5px;">
+  <h2 style="color: #333;">Próximamente</h2>
+  <p style="color: #666;">Este contenido estará disponible próximamente. ¡Estén atentos para más actualizaciones!</p>
+</div>
+
 
 ## Contribución
 
