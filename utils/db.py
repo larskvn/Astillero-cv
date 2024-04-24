@@ -1,4 +1,7 @@
+from flask import Flask
 from mongoengine import connect
-
-db=connect(host="mongodb+srv://kvnyarbis:by.aliaxis@astilleros.0avgb9x.mongodb.net/astillerodb")
+from dotenv import load_dotenv
+import os
+load_dotenv()
+db=connect(host=os.getenv("BD_MONGO"))
 
