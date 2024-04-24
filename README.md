@@ -39,21 +39,4 @@ Astillero CV es una aplicación web desarrollada siguiendo el patrón de diseño
 
 ## Uso
 
-<div style="background-color: #f9f9f9; padding: 10px; border-radius: 5px;">
-  <h2 style="color: #333;">Próximamente</h2>
-  <p style="color: #666;">Este contenido estará disponible próximamente. ¡Estén atentos para más actualizaciones!</p>
-</div>
-
-
-## Contribución
-
-¡Las contribuciones son bienvenidas! Si deseas mejorar Astillero CV, ¡no dudes en enviar un pull request!
-
-## Problemas
-
-Si encuentras algún problema con la aplicación, no dudes en abrir un issue en el [repositorio de GitHub](https://github.com/tu_usuario/astillero-cv/issues).
-
-## Licencia
-
-Este proyecto está bajo la licencia MIT. Para más detalles, consulta el archivo [LICENSE](LICENSE).
 
