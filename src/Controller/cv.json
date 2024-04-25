@@ -1,0 +1,53 @@
+{
+    "nombre": "Francisco Jesus Capdevila",
+    "email": "francisco@gmail.com",
+    "telefono": 987564781,
+    "Postulacion": "Ingeniero de Software",
+    "perfil": "Soy un ingeniero de software con más de 5 años de experiencia en el desarrollo y diseño de aplicaciones web y móviles. Mi pasión por la tecnología me ha llevado a dominar diversas tecnologías y lenguajes de programación, incluyendo Python, JavaScript, Java y C#. Además, tengo experiencia en el manejo de bases de datos SQL y NoSQL, así como en la implementación de soluciones en la nube utilizando servicios como AWS y Azure.",
+    "cursos":[
+        {
+            "Instituto": "Universidad de Lima",
+            "carrera": "ingeniero de Software",
+            "fecha": "2015 - 2020"
+        },
+        {
+            "Instituto": "Cloud Computing",
+            "carrera": "Google Cloud Developer",
+            "fecha": "2017 - 2018"
+        }
+    ],
+    "habilidades": [
+        {
+            "habilidad": "Desarrollo de Software: Diseño y mantenimiento de apps web y móviles con diversas tecnologías."
+        },
+        {
+            "habilidad": "Arquitectura de Software: Diseño de arquitecturas escalables con patrones y principios de ingeniería."
+        },
+        {
+            "habilidad": "Gestión de Proyectos: Planificación y entrega de proyectos de software, cumpliendo plazos y objetivos."
+        },
+        {
+            "habilidad": "Análisis de Requisitos: Identificación y traducción de requisitos en especificaciones de software."
+        },
+        {
+            "habilidad": "Pruebas y Depuración: Realización de pruebas y resolución de problemas (debugging)."
+        },
+        {
+            "habilidad": "Trabajo en Equipo: Colaboración efectiva en equipos multidisciplinarios, comunicación y aporte de soluciones."
+        }
+    ],
+    "experiencia": [
+        {
+            "nombre": "Pieers",
+            "cargo": "Ingeniero de software",
+            "fecha": "2021 - 2022",
+            "descripcion": "En Pieers, empresa líder en soluciones tecnológicas, me desempeñé como ingeniero de software, participando en el desarrollo de la plataforma principal, liderando proyectos de análisis de datos en tiempo real, desarrollando aplicaciones móviles nativas y colaborando en la migración a la nube. Implementé prácticas ágiles, brindé soporte técnico y contribuí al crecimiento del equipo, adquiriendo habilidades en diseño de arquitecturas, trabajo colaborativo y resolución de problemas en un entorno dinámico y orientado a resultados."
+        },
+        {
+            "nombre": "Palestra",
+            "cargo": "director general de proyectos",
+            "fecha": "2023 - Presente",
+            "descripcion": "En Palestra, una empresa líder en consultoría y gestión de proyectos, tuve el honor de desempeñarme como Director General de Proyectos, liderando estratégicamente la ejecución de proyectos de gran envergadura y garantizando su éxito desde la concepción hasta la entrega. Supervisé equipos multidisciplinarios, establecí objetivos claros y gestioné recursos para asegurar la calidad, el cumplimiento de plazos y la satisfacción del cliente. Implementé metodologías de gestión de proyectos ágiles y promoví una cultura de colaboración y excelencia, lo que resultó en un aumento significativo en la eficiencia operativa y la rentabilidad de la empresa."
+        }
+    ]
+}

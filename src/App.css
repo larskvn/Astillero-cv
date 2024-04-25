@@ -1,42 +1,224 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+.swiper {
+  max-width: 75rem !important;
+  height: 50% !important;
+}
+
+.swiper-slide {
+  text-align: center !important;
+  font-size: 18px !important;
+  background: transparent !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.swiper-slide img {
+  width: 450px !important;
+  height: 500px !important;
+  object-fit: contain !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: #f7b801 !important;
+}
+
+section .card {
+  position: relative;
+  width: 305px;
+  height: 420px;
+  background-color: #fff;
+  margin: 20px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+  transition: 0.5s ease-in-out;
+}
+
+section:hover .card {
+  filter: blur(3px);
+  transform: scale(0.9);
+  opacity: 0.5;
+}
+
+section .card:hover {
+  filter: blur(0);
+  transform: scale(1);
+  opacity: 1;
+}
+
+section .card:hover .cirlce {
+  clip-path: circle(600px);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
+  margin-top: 30px;
+}
+.content p {
+  position: absolute;
+  top: 190px;
+  transition: 0.5s ease-in-out;
+  margin: 0 15px 0 15px;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40%;
+  border-bottom-left-radius: 100%;
+  border-bottom-right-radius: 100%;
+  transition: 0.5s ease-in-out;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+.card .circle h2 {
+  font-size: 70px;
+  color: white;
+  font-weight: 900;
+  position: absolute;
+  top: 20px;
+  z-index: 10;
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.card:hover .circle {
+  height: 100%;
+  border-radius: 0;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.card:hover .content p {
+  color: white;
+}
+
+/* robot */
+
+.sectio-robot {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 70px;
+  animation: IMG 2s ease-in-out infinite;
+  animation-delay: 2s;
+  margin-top: 40px;
+}
+
+@keyframes IMG {
+  0% {
+    transform: translateY(0);
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+.eyes-container {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 100px;
+  height: 90px;
+  background-color: transparent;
+  border-radius: 25px;
+  right: 49%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.eye {
+  width: 22px;
+  height: 36px;
+  background-color: #676c82;
+  border-radius: 26%;
+  overflow: hidden;
+  margin-bottom: 22px;
+}
+
+.pupil {
+  position: relative;
+  width: 30px;
+  height: 45px;
+
+  background: rgb(90, 213, 200);
+  background: linear-gradient(
+    240deg,
+    rgba(90, 213, 200, 1) 0%,
+    rgba(94, 187, 202, 1) 47%,
+    rgba(94, 187, 202, 1) 100%
+  );
+  border-radius: 26%;
+
+  transform: translate(-50%, -50%);
+  transition: transform 0.4s ease-in-out;
+}
+
+.left-eye {
+  margin-right: 13px;
+}
+
+.right-eye {
+  margin-left: 13px;
+}
+
+.bg-transparent {
+  background-color: #f4f4f5;
+  transition: 0s;
+}
+
+@media (max-width: 767px) {
+  section .card {
+    width: 310px;
+    height: 370px;
   }
-}
+  .content p {
+    font-size: 14px;
+  }
+  .card .circle h2 {
+    font-size: 65px;
+  }
+  .swiper {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    max-width: 75rem !important;
+    height: 55rem !important;
+  }
+  .swiper-slide {
+    text-align: center !important;
+    font-size: 14px !important;
+    background: transparent !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
 
-.card {
-  padding: 2em;
-}
+  .swiper-slide img {
+    width: 400px !important;
+    height: 400px !important;
+    object-fit: contain !important;
+  }
 
-.read-the-docs {
-  color: #888;
+  .eye {
+    width: 16px;
+    height: 25px;
+  }
+
+  .pupil {
+    width: 16px;
+    height: 25px;
+  }
+
+  .left-eye {
+    margin-right: 9px;
+  }
+
+  .right-eye {
+    margin-left: 9px;
+  }
 }

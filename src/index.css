@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .react-pdf__Page__annotations.annotationLayer {
+      display: none;
+    }
+  }
