@@ -1,7 +1,5 @@
 import React, { useRef, useState } from "react";
 import "../App.css";
-import robot from "../assets/robot.png";
-import { Zoom } from "react-reveal";
 import { FaCirclePlus } from "react-icons/fa6";
 import {
   Select,
@@ -15,6 +13,7 @@ import { universityCareers } from "../objects/Carrear.js";
 import { hardSkill, softSkill } from "../objects/Skills.js";
 import { tipoSchool } from "../objects/TypeSchool.js";
 import { year } from "../objects/Years.js";
+import Robot from '../Components/Robot.jsx'
 
 const FormCV = () => {
   //arreglo para la experiencia laboral
@@ -58,6 +57,8 @@ const FormCV = () => {
 
   let globalSelectedHard = [];
   let globalSelectedSoft = [];
+  const [disableBotonSoft, setdisableBotonSoft] = useState(true)
+  const [disableBotonNext, setdisableBotonNext] = useState(true)
 
   //objeto general declarado para el formulario
   const [formData, setFormData] = useState({
@@ -83,6 +84,7 @@ const FormCV = () => {
       ...prevState,
       hardSkill: globalSelectedHard,
     }));
+    setdisableBotonSoft(false)
   };
 
   const handleShowSelectedSoft = () => {
@@ -94,6 +96,7 @@ const FormCV = () => {
       ...prevState,
       softSkill: globalSelectedSoft,
     }));
+    setdisableBotonNext(false)
   };
 
   //funcion para tomar los valores de los inputs de (formData)
@@ -177,8 +180,8 @@ const FormCV = () => {
     setSection(section + 1); // Avanzar a la siguiente sección
   };
 
-   //funcion para retroceder la seccion
-   const handleBackSection = () => {
+  //funcion para retroceder la seccion
+  const handleBackSection = () => {
     setSection(section - 1); // Retroceder a la anterior sección
   };
 
@@ -197,60 +200,7 @@ const FormCV = () => {
             <h2 className="md:text-3xl text-center text-2xl font-bold text-COLOR-CV-292F36">
               Para ayudarte, indica tu nombre completo, te estoy mirando
             </h2>
-            <Zoom top cascade>
-              <div className="sectio-robot">
-                <div className="robot-img">
-                  <img src={robot} className="w-72" />
-                </div>
-
-                <div className="eyes-container">
-                  <div className="eye left-eye">
-                    <div
-                      className="pupil"
-                      style={{
-                        transform: `translateX(${inputText.length * 0.4}px)`,
-                        top:
-                          inputText.length >= 17
-                            ? "45%"
-                            : inputText.length >= 1
-                            ? "45%"
-                            : "0%", // Posición inicial en el centro, luego baja a 45% cuando se escribe
-                        left:
-                          inputText.length >= 20
-                            ? "-90%"
-                            : inputText.length >= 17
-                            ? "-70%"
-                            : inputText.length >= 1
-                            ? "-75%"
-                            : "0%", // Posición inicial en el centro, luego baja a -70% cuando se escribe
-                      }}
-                    ></div>
-                  </div>
-                  <div className="eye right-eye">
-                    <div
-                      className="pupil"
-                      style={{
-                        transform: `translateX(${inputText.length * 0.4}px)`,
-                        top:
-                          inputText.length >= 17
-                            ? "45%"
-                            : inputText.length >= 1
-                            ? "45%"
-                            : "0%", // Posición inicial en el centro, luego baja a 45% cuando se escribe
-                        left:
-                          inputText.length >= 20
-                            ? "-90%"
-                            : inputText.length >= 17
-                            ? "-70%"
-                            : inputText.length >= 1
-                            ? "-75%"
-                            : "0%", // Posición inicial en el centro, luego baja a -70% cuando se escribe
-                      }}
-                    ></div>
-                  </div>
-                </div>
-              </div>
-            </Zoom>
+            <Robot inputText={inputText}/>
 
             <Input
               id="name"
@@ -306,60 +256,9 @@ const FormCV = () => {
             <h2 className="md:text-3xl text-center text-2xl font-bold text-COLOR-CV-292F36">
               Ahora cuentanos un poco acerca de tu experiencia profesional
             </h2>
-            <Zoom top cascade>
-              <div className="sectio-robot">
-                <div className="robot-img">
-                  <img src={robot} className="w-72" />
-                </div>
 
-                <div className="eyes-container">
-                  <div className="eye left-eye">
-                    <div
-                      className="pupil"
-                      style={{
-                        transform: `translateX(${inputText.length * 0.4}px)`,
-                        top:
-                          inputText.length >= 17
-                            ? "45%"
-                            : inputText.length >= 1
-                            ? "45%"
-                            : "0%", // Posición inicial en el centro, luego baja a 45% cuando se escribe
-                        left:
-                          inputText.length >= 20
-                            ? "-90%"
-                            : inputText.length >= 17
-                            ? "-70%"
-                            : inputText.length >= 1
-                            ? "-75%"
-                            : "0%", // Posición inicial en el centro, luego baja a -70% cuando se escribe
-                      }}
-                    ></div>
-                  </div>
-                  <div className="eye right-eye">
-                    <div
-                      className="pupil"
-                      style={{
-                        transform: `translateX(${inputText.length * 0.4}px)`,
-                        top:
-                          inputText.length >= 17
-                            ? "45%"
-                            : inputText.length >= 1
-                            ? "45%"
-                            : "0%", // Posición inicial en el centro, luego baja a 45% cuando se escribe
-                        left:
-                          inputText.length >= 20
-                            ? "-90%"
-                            : inputText.length >= 17
-                            ? "-70%"
-                            : inputText.length >= 1
-                            ? "-75%"
-                            : "0%", // Posición inicial en el centro, luego baja a -70% cuando se escribe
-                      }}
-                    ></div>
-                  </div>
-                </div>
-              </div>
-            </Zoom>
+            <Robot inputText={inputText}/>
+
             <Input
               id="telefono"
               type="text"
@@ -412,68 +311,18 @@ const FormCV = () => {
               ¡Queremos conocerte mejor! Cuéntanos un poco sobre ti: tus
               intereses y lo que te hace único.
             </h2>
-            <Zoom top cascade>
-              <div className="sectio-robot">
-                <div className="robot-img">
-                  <img src={robot} className="w-72" />
-                </div>
 
-                <div className="eyes-container">
-                  <div className="eye left-eye">
-                    <div
-                      className="pupil"
-                      style={{
-                        transform: `translateX(${inputText.length * 0.4}px)`,
-                        top:
-                          inputText.length >= 17
-                            ? "45%"
-                            : inputText.length >= 1
-                            ? "45%"
-                            : "0%", // Posición inicial en el centro, luego baja a 45% cuando se escribe
-                        left:
-                          inputText.length >= 20
-                            ? "-90%"
-                            : inputText.length >= 17
-                            ? "-70%"
-                            : inputText.length >= 1
-                            ? "-75%"
-                            : "0%", // Posición inicial en el centro, luego baja a -70% cuando se escribe
-                      }}
-                    ></div>
-                  </div>
-                  <div className="eye right-eye">
-                    <div
-                      className="pupil"
-                      style={{
-                        transform: `translateX(${inputText.length * 0.4}px)`,
-                        top:
-                          inputText.length >= 17
-                            ? "45%"
-                            : inputText.length >= 1
-                            ? "45%"
-                            : "0%", // Posición inicial en el centro, luego baja a 45% cuando se escribe
-                        left:
-                          inputText.length >= 20
-                            ? "-90%"
-                            : inputText.length >= 17
-                            ? "-70%"
-                            : inputText.length >= 1
-                            ? "-75%"
-                            : "0%", // Posición inicial en el centro, luego baja a -70% cuando se escribe
-                      }}
-                    ></div>
-                  </div>
-                </div>
-              </div>
-            </Zoom>
+             <Robot inputText={inputText}/>
 
-            <button
-              type="button"
-              className="flex md:justify-center items-center gap-3 text-COLOR-CV-F64740 md:relative relative left-32 md:left-96"
-              onClick={handleAddEducation}
-            >
-              <FaCirclePlus /> <span>Agregar Educacion</span>
-            </button>
+            <div className="flex w-100 justify-end">
+              <button
+                type="button"
+                className="flex md:justify-center items-center gap-3 text-COLOR-CV-F64740"
+                onClick={handleAddEducation}
+              >
+                <FaCirclePlus /> <span>Agregar Educacion</span>
+              </button>
+            </div>
 
             {[...Array(numEducations)].map((_, index) => (
               <div
@@ -611,67 +460,18 @@ const FormCV = () => {
               ¡Queremos conocerte mejor! Cuéntanos un poco sobre ti: tus
               intereses y lo que te hace único.
             </h2>
-            <Zoom top cascade>
-              <div className="sectio-robot">
-                <div className="robot-img">
-                  <img src={robot} className="w-72" />
-                </div>
 
-                <div className="eyes-container">
-                  <div className="eye left-eye">
-                    <div
-                      className="pupil"
-                      style={{
-                        transform: `translateX(${inputText.length * 0.4}px)`,
-                        top:
-                          inputText.length >= 17
-                            ? "45%"
-                            : inputText.length >= 1
-                            ? "45%"
-                            : "0%", // Posición inicial en el centro, luego baja a 45% cuando se escribe
-                        left:
-                          inputText.length >= 20
-                            ? "-90%"
-                            : inputText.length >= 17
-                            ? "-70%"
-                            : inputText.length >= 1
-                            ? "-75%"
-                            : "0%", // Posición inicial en el centro, luego baja a -70% cuando se escribe
-                      }}
-                    ></div>
-                  </div>
-                  <div className="eye right-eye">
-                    <div
-                      className="pupil"
-                      style={{
-                        transform: `translateX(${inputText.length * 0.4}px)`,
-                        top:
-                          inputText.length >= 17
-                            ? "45%"
-                            : inputText.length >= 1
-                            ? "45%"
-                            : "0%", // Posición inicial en el centro, luego baja a 45% cuando se escribe
-                        left:
-                          inputText.length >= 20
-                            ? "-90%"
-                            : inputText.length >= 17
-                            ? "-70%"
-                            : inputText.length >= 1
-                            ? "-75%"
-                            : "0%", // Posición inicial en el centro, luego baja a -70% cuando se escribe
-                      }}
-                    ></div>
-                  </div>
-                </div>
-              </div>
-            </Zoom>
+            <Robot inputText={inputText}/>
+
+            <div className="flex w-100 justify-end">
             <button
               type="button"
-              className="flex md:justify-center items-center gap-3 text-COLOR-CV-F64740 md:relative relative left-32 md:left-96"
+              className="flex md:justify-center items-center gap-3 text-COLOR-CV-F64740"
               onClick={handleAddExperiencia}
             >
               <FaCirclePlus /> <span>Agregar Experiencia</span>
             </button>
+            </div>
             {[...Array(numExperiencia)].map((_, index) => (
               <div
                 key={index}
@@ -775,12 +575,12 @@ const FormCV = () => {
               >
                 siguiente
               </Button>
-              <Button
+              {/* <Button
                 onClick={handleUpdateExperienciaLaboral}
                 className="bg-COLOR-CV-595959 shadow-lg text-COLOR-CV-F2F4F3 w-56 text-1xl mt-8"
               >
                 No cuento con experiencia
-              </Button>
+              </Button> */}
             </div>
           </section>
         )}
@@ -792,66 +592,14 @@ const FormCV = () => {
               ¡Queremos conocerte mejor! Cuéntanos un poco sobre ti: tus
               intereses y lo que te hace único.
             </h2>
-            <Zoom top cascade>
-              <div className="sectio-robot">
-                <div className="robot-img">
-                  <img src={robot} className="w-72" />
-                </div>
-
-                <div className="eyes-container">
-                  <div className="eye left-eye">
-                    <div
-                      className="pupil"
-                      style={{
-                        transform: `translateX(${inputText.length * 0.4}px)`,
-                        top:
-                          inputText.length >= 17
-                            ? "45%"
-                            : inputText.length >= 1
-                            ? "45%"
-                            : "0%", // Posición inicial en el centro, luego baja a 45% cuando se escribe
-                        left:
-                          inputText.length >= 20
-                            ? "-90%"
-                            : inputText.length >= 17
-                            ? "-70%"
-                            : inputText.length >= 1
-                            ? "-75%"
-                            : "0%", // Posición inicial en el centro, luego baja a -70% cuando se escribe
-                      }}
-                    ></div>
-                  </div>
-                  <div className="eye right-eye">
-                    <div
-                      className="pupil"
-                      style={{
-                        transform: `translateX(${inputText.length * 0.4}px)`,
-                        top:
-                          inputText.length >= 17
-                            ? "45%"
-                            : inputText.length >= 1
-                            ? "45%"
-                            : "0%", // Posición inicial en el centro, luego baja a 45% cuando se escribe
-                        left:
-                          inputText.length >= 20
-                            ? "-90%"
-                            : inputText.length >= 17
-                            ? "-70%"
-                            : inputText.length >= 1
-                            ? "-75%"
-                            : "0%", // Posición inicial en el centro, luego baja a -70% cuando se escribe
-                      }}
-                    ></div>
-                  </div>
-                </div>
-              </div>
-            </Zoom>
+           
+            <Robot inputText={inputText}/>
 
             <div className="flex w-100 justify-center items-center gap-3">
               <Select
                 ref={selectRef}
                 items={hardSkill}
-                label="Selecciona tus hardSkills"
+    
                 variant="bordered"
                 isMultiline={true}
                 selectionMode="multiple"
@@ -893,7 +641,7 @@ const FormCV = () => {
               <Select
                 ref={selectRef}
                 items={softSkill}
-                label="Selecciona tus softSkills"
+
                 variant="bordered"
                 isMultiline={true}
                 selectionMode="multiple"
@@ -924,6 +672,7 @@ const FormCV = () => {
                 )}
               </Select>
               <Button
+              isDisabled={disableBotonSoft}
                 className="bg-COLOR-CV-F7B801 shadow-lg text-COLOR-CV-F2F4F3 w-28 text-sm"
                 onClick={handleShowSelectedSoft}
               >
@@ -938,6 +687,7 @@ const FormCV = () => {
                 anterior
               </Button>
               <Button
+              isDisabled={disableBotonNext}
                 className="bg-COLOR-CV-F64740 shadow-lg text-COLOR-CV-F2F4F3 w-32 text-1xl mt-8"
                 onClick={handleNextSection}
               >
@@ -953,60 +703,8 @@ const FormCV = () => {
             <h2 className="md:text-3xl text-center text-2xl font-bold text-COLOR-CV-292F36">
               Para ayudarte, indica tu nombre completo, te estoy mirando
             </h2>
-            <Zoom top cascade>
-              <div className="sectio-robot">
-                <div className="robot-img">
-                  <img src={robot} className="w-72" />
-                </div>
 
-                <div className="eyes-container">
-                  <div className="eye left-eye">
-                    <div
-                      className="pupil"
-                      style={{
-                        transform: `translateX(${inputText.length * 0.4}px)`,
-                        top:
-                          inputText.length >= 17
-                            ? "45%"
-                            : inputText.length >= 1
-                            ? "45%"
-                            : "0%", // Posición inicial en el centro, luego baja a 45% cuando se escribe
-                        left:
-                          inputText.length >= 20
-                            ? "-90%"
-                            : inputText.length >= 17
-                            ? "-70%"
-                            : inputText.length >= 1
-                            ? "-75%"
-                            : "0%", // Posición inicial en el centro, luego baja a -70% cuando se escribe
-                      }}
-                    ></div>
-                  </div>
-                  <div className="eye right-eye">
-                    <div
-                      className="pupil"
-                      style={{
-                        transform: `translateX(${inputText.length * 0.4}px)`,
-                        top:
-                          inputText.length >= 17
-                            ? "45%"
-                            : inputText.length >= 1
-                            ? "45%"
-                            : "0%", // Posición inicial en el centro, luego baja a 45% cuando se escribe
-                        left:
-                          inputText.length >= 20
-                            ? "-90%"
-                            : inputText.length >= 17
-                            ? "-70%"
-                            : inputText.length >= 1
-                            ? "-75%"
-                            : "0%", // Posición inicial en el centro, luego baja a -70% cuando se escribe
-                      }}
-                    ></div>
-                  </div>
-                </div>
-              </div>
-            </Zoom>
+            <Robot inputText={inputText}/>
 
             <Textarea
               placeholder="Perfil profesional"
