@@ -46,7 +46,7 @@ def save_to_database(user_data):
             Educacion=education,
             Experience=experiences,
             hard=user_data.get('hard', []),
-            skills=user_data.get('skills', []),
+            soft=user_data.get('soft', []),
             curso=[Estudio(**curso) for curso in user_data.get('curso', [])],
             about_response=user_data.get('about_response')
         )
@@ -63,9 +63,9 @@ def save_to_database(user_data):
         return str(e)
     
     
-def send_to_chatgpt(name_question, last_name_question, experience_question, skills_question, hard_question,
+def send_to_chatgpt(name_question, last_name_question, experience_question, soft_question, hard_question,
                     application_position_question):
-    combined_question = f"Mi nombre es {name_question}.{last_name_question} + y estoy postulando para {application_position_question}.{experience_question}. {skills_question}.{hard_question}"
+    combined_question = f"Mi nombre es {name_question}.{last_name_question} + y estoy postulando para {application_position_question}.{experience_question}. {soft_question}.{hard_question}"
 
     payload = {
         "messages": [

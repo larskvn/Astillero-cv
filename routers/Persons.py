@@ -8,14 +8,14 @@ cv = Blueprint('Persons', __name__)
 @cv.route('/prueba', methods=['POST'])
 def prueba():
     data = request.json
-    if not all(field in data for field in ['name', 'last_name', 'Experience', 'hard', 'skills', 'curso']):
+    if not all(field in data for field in ['name', 'last_name', 'Experience', 'hard', 'soft', 'curso']):
         return jsonify({'error': 'Missing required fields'}), 400
 
     name_question = data['name']
     last_name_question = data['last_name']
     application_position_question = data.get('application_position', '')  # Establece un valor predeterminado
     hard_question = data['hard']
-    skills_question = data['skills']
+    soft_question = data['soft']
     curso_data = data['curso']
 
     curso_objects = [Estudio(**curso) for curso in curso_data]
@@ -31,8 +31,8 @@ def prueba():
 
     sorted_experience = sorted(data['Experience'], key=lambda x: x['feFinal'], reverse=True)
 
-    combined_question = f"Mi nombre es {name_question}.{last_name_question} y estoy postulando para {application_position_question}. {skills_question}. {hard_question}."
-    about_response = send_to_chatgpt(name_question, last_name_question, combined_question, skills_question,
+    combined_question = f"Mi nombre es {name_question}.{last_name_question} y estoy postulando para {application_position_question}. {soft_question}. {hard_question}."
+    about_response = send_to_chatgpt(name_question, last_name_question, combined_question, soft_question,
                                      hard_question, application_position_question)
 
     # Eliminar las comillas dobles que rodean la respuesta "Acerca de"
@@ -46,7 +46,7 @@ def prueba():
         'last_name': last_name_question,
         'application_position': application_position_question,
         'hard': hard_question,
-        'skills': skills_question,
+        'soft': soft_question,
         'curso': curso_data,
         'about_response': about_response,
         'Experience': sorted_experience,
@@ -85,7 +85,7 @@ def prueba():
         ],
         'Experience': sorted_experience,
         'hard': hard_question,
-        'skills': skills_question,
+        'soft': soft_question,
         'curso': curso_data,
         'about_response': about_response
     }

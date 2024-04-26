@@ -28,7 +28,7 @@ class Persona(Document):
     Educacion = ListField(EmbeddedDocumentField(Educ))
     Experience = ListField(EmbeddedDocumentField(Laboral))
     hard = ListField(StringField())
-    skills = ListField(StringField())
+    soft = ListField(StringField())
     curso = ListField(EmbeddedDocumentField(Estudio))
     about_response = StringField() 
 
