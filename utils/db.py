@@ -24,13 +24,9 @@ def initialize_database():
 
 def save_to_database(user_data):
     try:
-        # Crear instancias de objetos Laboral para cada experiencia laboral
         experiences = [Laboral(**exp) for exp in user_data['Experience']]
+        education = []  
 
-        # Crear instancias de objetos Educ para cada experiencia educativa
-        education = []  # Esto es una lista vacía, ya que no hay datos de educación en user_data
-
-        # Crear instancia de Persona con los datos proporcionados
         persona = Persona(
             name=user_data.get('name'),
             last_name=user_data.get('last_name'),
@@ -46,15 +42,12 @@ def save_to_database(user_data):
             about_response=user_data.get('about_response')
         )
 
-        # Guardar la instancia de Persona en la base de datos
         persona.save()
 
         return str(persona.id)
     except ValidationError as ve:
-        # Capturar errores de validación de MongoEngine
         return str(ve)
     except Exception as e:
-        # Capturar otros errores
         return str(e)
 
     

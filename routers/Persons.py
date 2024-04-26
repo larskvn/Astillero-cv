@@ -36,10 +36,7 @@ def prueba():
     respuesta_acercade = send_to_chatgpt(nombre, apellido, pregunta_combinada, habilidades_suaves,
                                      habilidades_duras, puesto_aplicacion)
 
-    # Eliminar las comillas dobles que rodean la respuesta "Acerca de"
     respuesta_acercade = respuesta_acercade.strip('"')
-
-    # Obtener los datos de educación de la solicitud JSON
     educacion_data = data.get('Educacion', [])
 
     datos_usuario = {
@@ -57,12 +54,7 @@ def prueba():
         'linkGit': data.get('linkGit', '')  
     }
 
-    # No es necesario convertir fecha_inicial y fecha_final a objetos datetime
-
-    # Guardar los datos del usuario en la base de datos
     user_id = save_to_database(datos_usuario)
-
-    # Construir la respuesta JSON con toda la información
     respuesta_data = {
         'user_id': user_id,
         'name': nombre,
