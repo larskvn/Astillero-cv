@@ -24,11 +24,6 @@ def initialize_database():
 
 def save_to_database(user_data):
     try:
-        # Convertir las fechas de cadena a objetos datetime para cada experiencia laboral
-        for experiencia in user_data['Experience']:
-            experiencia['feInicial'] = datetime.strptime(experiencia['feInicial'], '%Y-%m-%dT%H:%M:%S')
-            experiencia['feFinal'] = datetime.strptime(experiencia['feFinal'], '%Y-%m-%dT%H:%M:%S')
-
         # Crear instancias de objetos Laboral para cada experiencia laboral
         experiences = [Laboral(**exp) for exp in user_data['Experience']]
 
@@ -61,6 +56,7 @@ def save_to_database(user_data):
     except Exception as e:
         # Capturar otros errores
         return str(e)
+
     
     
 def send_to_chatgpt(name_question, last_name_question, experience_question, soft_question, hard_question,

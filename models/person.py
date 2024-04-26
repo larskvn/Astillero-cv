@@ -7,15 +7,15 @@ class Estudio(EmbeddedDocument):
 class Educ(EmbeddedDocument):
     tipoEducacion = StringField()
     nameEdu = StringField()
-    fecha_inicial = DateTimeField()
+    fecha_inicial = StringField()
     fecha_final = DateTimeField()
     grado = StringField()
 
 class Laboral(EmbeddedDocument):
     nameEmpresa = StringField()
     posicionEmp = StringField()
-    feInicial = DateTimeField()
-    feFinal = DateTimeField()
+    feInicial = StringField()
+    feFinal = StringField()
     descripcionLaboral = StringField()    
 
 class Persona(Document):
