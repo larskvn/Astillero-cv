@@ -1,9 +1,11 @@
 from flask import Blueprint, request, jsonify
+from flask_cors import CORS
 from models.person import Persona, Educ, Laboral, Estudio
 from datetime import datetime
 
 from utils.db import save_to_database, improve_description, send_to_chatgpt
 cv = Blueprint('Persons', __name__)
+CORS(cv)
 
 @cv.route('/prueba', methods=['POST'])
 def prueba():
