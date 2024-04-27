@@ -13,7 +13,7 @@ load_dotenv()
 CHATGPT_API_URL =  "https://chatgpt-42.p.rapidapi.com/gpt4"
 HEADERS = {
     "content-type": "application/json",
-	"X-RapidAPI-Key": "f2713af3d5mshcd914a77d1b4d2dp1bcd75jsnac4dfbad647c",
+	"X-RapidAPI-Key": "7b297f7f6emsh85e9beeeaa6da4cp148cbajsn9b72e135eb04",
 	"X-RapidAPI-Host": "chatgpt-42.p.rapidapi.com"
 }
 
