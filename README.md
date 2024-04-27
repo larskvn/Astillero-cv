@@ -52,9 +52,9 @@ Descripción del proyecto.
 
 <div align="center">
 
-```ocaml
-[onli-cv.vercel.app](https://onli-cv.vercel.app/)
-```
+
+[Link aqui](https://astillero-cv.vercel.app/)
+
 
   
 ## <samp>Colaboradores</samp>
