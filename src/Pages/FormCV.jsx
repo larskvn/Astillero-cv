@@ -15,6 +15,7 @@ import { tipoSchool } from "../objects/TypeSchool.js";
 import { Nivel } from "../objects/Nivel.js";
 import { year } from "../objects/Years.js";
 import Robot from "../Components/Robot.jsx";
+import { useNavigate } from 'react-router-dom';
 
 const FormCV = () => {
   //arreglo para la experiencia laboral
@@ -30,7 +31,7 @@ const FormCV = () => {
 
   //arreglo para la educacion
   const initialEducation = [
-    { 
+    {
       tipoEducacion: "",
       nameEdu: "",
       grado: "",
@@ -85,7 +86,7 @@ const FormCV = () => {
     soft: globalSelectedSoft,
     Experience: [...experienciaLaboral],
     Educacion: [...education],
-    curso:[...cursos],
+    curso: [...cursos],
   });
 
   const handleShowSelectedHard = () => {
@@ -115,17 +116,17 @@ const FormCV = () => {
   //funcion para tomar los valores de los inputs de (formData)
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-  
+
     // Si el campo es el teléfono, intenta convertir el valor a un número
     const newValue = name === 'phone' ? parseInt(value, 10) : value;
-  
+
     setInputText(newValue); // Actualiza el valor mostrado en el input (opcional)
     setFormData({
       ...formData,
       [name]: newValue,
     });
   };
-  
+
 
   //funcion de pasar al siguiente contenedor de la "Experiencia Laboral"
   const handleAddExperiencia = () => {
@@ -230,6 +231,7 @@ const FormCV = () => {
     setSection(section - 1); // Retroceder a la anterior sección
   };
 
+  const navigate = useNavigate();
 
   const enviarDatosAPI = async () => {
 
@@ -241,13 +243,21 @@ const FormCV = () => {
         },
         body: JSON.stringify(formData),
       });
-  
+
       if (!response.ok) {
         throw new Error('Error al enviar los datos a la API');
       }
-  
+
       const data = await response.json();
-      console.log('Respuesta de la API:', data);
+
+      // Guardar los datos en el localStorage
+      localStorage.setItem('myData', JSON.stringify(data));
+
+      // Redirigir a la página /pdf
+      navigate('/pdf');
+
+
+      // console.log('Respuesta de la API:', data);
       // Aquí puedes realizar acciones adicionales con la respuesta de la API, si es necesario
     } catch (error) {
       console.error('Error para enviar los datos a la API:', error.message);
@@ -292,7 +302,7 @@ const FormCV = () => {
               value={formData.last_name}
               onChange={handleInputChange}
             />
-             <Input
+            <Input
               type="text"
               label="Carrea profesional..."
               className="md:w-999 mb-5"
@@ -816,7 +826,7 @@ const FormCV = () => {
                     </div>
                   </SelectItem>
                 )}
-              </Select> 
+              </Select>
               <Button
                 isDisabled={disableBotonSoft}
                 className="bg-COLOR-CV-F7B801 shadow-lg text-COLOR-CV-F2F4F3 w-28 text-sm"
