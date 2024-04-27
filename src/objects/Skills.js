@@ -1,45 +1,53 @@
 export const hardSkill = [
     {
       id: 1,
-      name: "Test1",
+      name: "JavaScript",
     },
     {
       id: 2,
-      name: "Test2",
+      name: "Python",
     },
     {
       id: 3,
-      name: "Test3",
+      name: "Java",
     },
     {
       id: 4,
-      name: "Test4",
+      name: "C++",
     },
     {
       id: 5,
-      name: "Test5",
+      name: "React",
     },
     {
       id: 6,
-      name: "Test6",
+      name: "Angular",
     },
   ];
   
   export const softSkill = [
     {
       id: 1,
-      name: "Tesst1",
+      name: "Resolución de problemas",
     },
     {
       id: 2,
-      name: "Tesst2",
+      name: "Comunicación efectiva",
     },
     {
       id: 3,
-      name: "Tesst3",
+      name: "Trabajo en equipo",
     },
     {
       id: 4,
-      name: "Tesst4",
+      name: "Adaptabilidad",
+    },
+    {
+      id: 5,
+      name: "Pensamiento crítico",
+    },
+    {
+      id: 6,
+      name: "Autogestión y organización",
     },
   ];
