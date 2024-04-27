@@ -183,13 +183,17 @@ const VisualizacionCv = () => {
 
     const handleDownload = async () => {
         const data = JSON.parse(localStorage.getItem('myData'));
-        const name = data.name;
-        const lastName = data.last_name;
+        if (data) {
+            const name = data.name;
+            const lastName = data.last_name;
 
-        const link = document.createElement('a');
-        link.href = pdfUrl;
-        link.download = `${name} ${lastName}_CV.pdf`; // Aquí puedes especificar el nombre del archivo
-        link.click();
+            const link = document.createElement('a');
+            link.href = pdfUrl;
+            link.download = `${name} ${lastName}_CV.pdf`; // Aquí puedes especificar el nombre del archivo
+            link.click();
+        } else {
+            console.error('No se encontraron datos en el almacenamiento local');
+        }
     }
 
     const handlePrevPage = () => {
