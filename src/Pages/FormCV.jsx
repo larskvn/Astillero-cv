@@ -266,6 +266,7 @@ const FormCV = () => {
   return (
     <>
       <form className="flex flex-col justify-center items-center">
+
         {/* seccion de los nombres y carrera del usuario */}
         {section === 1 && (
           <section className="flex flex-col justify-center items-center my-24 mx-5">
@@ -334,7 +335,7 @@ const FormCV = () => {
         {section === 2 && (
           <section className="flex flex-col justify-center items-center my-24 mx-5">
             <h2 className="md:text-3xl text-center text-2xl font-bold text-COLOR-CV-292F36">
-              Ahora cuentanos un poco acerca de tu experiencia profesional
+            Por favor, proporciónanos tus datos de contacto.
             </h2>
 
             <Robot inputText={inputText} />
@@ -387,8 +388,7 @@ const FormCV = () => {
         {section === 3 && (
           <section className="flex flex-col justify-center items-center my-24 mx-5">
             <h2 className="md:text-3xl text-center text-2xl font-bold text-COLOR-CV-292F36">
-              ¡Queremos conocerte mejor! Cuéntanos un poco sobre ti: tus
-              intereses y lo que te hace único.
+              Por favor, comparte tu historial educativo con nosotros
             </h2>
 
             <Robot inputText={inputText} />
@@ -525,8 +525,7 @@ const FormCV = () => {
         {section === 4 && (
           <section className="flex flex-col justify-center items-center my-24 mx-5">
             <h2 className="md:text-3xl text-center text-2xl font-bold text-COLOR-CV-292F36">
-              ¡Queremos conocerte mejor! Cuéntanos un poco sobre ti: tus
-              intereses y lo que te hace único.
+            ¡Nos encantaría conocer los cursos que has realizado para potenciar tu experiencia!
             </h2>
 
             <Robot inputText={inputText} />
@@ -603,8 +602,7 @@ const FormCV = () => {
         {section === 5 && (
           <section className="flex flex-col justify-center items-center my-24 mx-5">
             <h2 className="md:text-3xl text-center text-2xl font-bold text-COLOR-CV-292F36">
-              ¡Queremos conocerte mejor! Cuéntanos un poco sobre ti: tus
-              intereses y lo que te hace único.
+            Queremos descubrir tus logros y experiencias laborales que han marcado tu trayectoria profesional.
             </h2>
 
             <Robot inputText={inputText} />
@@ -737,8 +735,8 @@ const FormCV = () => {
         {section === 6 && (
           <section className="flex flex-col justify-center items-center my-24 mx-5">
             <h2 className="md:text-3xl text-center text-2xl font-bold text-COLOR-CV-292F36">
-              ¡Queremos conocerte mejor! Cuéntanos un poco sobre ti: tus
-              intereses y lo que te hace único.
+            Nos encantaría conocer tus habilidades técnicas y blandas, esas que te hacen destacar en el <br />
+            mundo laboral y trabajar en equipo de manera efectiva.
             </h2>
 
             <Robot inputText={inputText} />
@@ -789,6 +787,7 @@ const FormCV = () => {
                 ref={selectRef}
                 items={softSkill}
                 variant="bordered"
+                isDisabled={disableBotonSoft}
                 isMultiline={true}
                 selectionMode="multiple"
                 placeholder="Selecionar soft"
