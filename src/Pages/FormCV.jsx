@@ -234,36 +234,35 @@ const FormCV = () => {
   const navigate = useNavigate();
 
   const enviarDatosAPI = async () => {
-
     try {
-      const response = await fetch('https://astillero-cv.onrender.com/prueba', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+        const fetchPromise = fetch('https://astillero-cv.onrender.com/prueba', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+        });
 
-      if (!response.ok) {
-        throw new Error('Error al enviar los datos a la API');
-      }
+        // Redirigir a la página /pdf
+        navigate('/pdf');
 
-      const data = await response.json();
+        const response = await fetchPromise;
 
-      // Guardar los datos en el localStorage
-      localStorage.setItem('myData', JSON.stringify(data));
+        if (!response.ok) {
+            throw new Error('Error al enviar los datos a la API');
+        }
 
-      // Redirigir a la página /pdf
-      navigate('/pdf');
+        const data = await response.json();
 
+        // Guardar los datos en el localStorage
+        localStorage.setItem('myData', JSON.stringify(data));
 
-      // console.log('Respuesta de la API:', data);
-      // Aquí puedes realizar acciones adicionales con la respuesta de la API, si es necesario
+        // Aquí puedes realizar acciones adicionales con la respuesta de la API, si es necesario
     } catch (error) {
-      console.error('Error para enviar los datos a la API:', error.message);
-      // Aquí puedes manejar el error de manera adecuada según tu aplicación
+        console.error('Error para enviar los datos a la API:', error.message);
+        // Aquí puedes manejar el error de manera adecuada según tu aplicación
     }
-  };
+};
 
 
 

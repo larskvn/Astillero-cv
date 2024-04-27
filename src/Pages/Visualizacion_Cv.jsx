@@ -37,9 +37,13 @@ async function createPdf() {
     // Restablece el tamaño y el color del texto
     doc.setFontSize(13);
     doc.setTextColor(0, 100, 100);
-    doc.text(`Telefono: ${data.phone}`, 120, 20);
-    doc.text(`Email: ${data.email}`, 120, 25);
-    doc.text(`LinkGit: ${data.linkGit}`, 120, 30);
+
+    // Calcula la longitud del apellido y ajusta la posición x de los textos en consecuencia
+    const lastNameLength = doc.getStringUnitWidth(data.last_name) * doc.internal.getFontSize();
+
+    doc.text(`Telefono: ${data.phone}`, 30 + lastNameLength, 20);
+    doc.text(`Email: ${data.email}`, 30 + lastNameLength, 25);
+    doc.text(`LinkGit: ${data.linkGit}`, 30 + lastNameLength, 30);
 
     doc.setFontSize(15);
     doc.setTextColor(48, 162, 193);
@@ -154,7 +158,7 @@ async function createPdf() {
 }
 
 
-const VisualizacionCv = (props) => {
+const VisualizacionCv = () => {
 
     const [pdfUrl, setPdfUrl] = useState(null);
     const [currentPage, setCurrentPage] = useState(1);
@@ -177,10 +181,14 @@ const VisualizacionCv = (props) => {
         }
     }, []);
 
-    const handleDownload = () => {
+    const handleDownload = async () => {
+        const data = JSON.parse(localStorage.getItem('myData'));
+        const name = data.name;
+        const lastName = data.last_name;
+
         const link = document.createElement('a');
         link.href = pdfUrl;
-        link.download = data.name + data.last_name + '.pdf';
+        link.download = `${name} ${lastName}_CV.pdf`; // Aquí puedes especificar el nombre del archivo
         link.click();
     }
 
